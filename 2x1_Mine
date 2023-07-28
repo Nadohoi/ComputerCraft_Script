@@ -2,10 +2,10 @@ function init()
     print("Enter how many steps you want the turtle to mine: ")
     num = io.read()
     num = tonumber(num)
-    if num > 0:
+    if num > 0 then
         print("Bone method?(y/n): ")
         bone = io.read()
-        if bone ~= "y" or bone ~= "n":
+        if bone ~= "y" or bone ~= "n" then
             print("Wrong input, try again.")
         end
     else:
@@ -18,7 +18,7 @@ function mine()
     flag = 0
 
     for i=1,num do 
-        if bone == "y":
+        if bone == "y" then
             flag = flag + 1
         end
 
