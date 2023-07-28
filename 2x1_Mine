@@ -2,13 +2,32 @@ function init()
     print("Enter how many steps you want the turtle to mine: ")
     num = io.read()
     num = tonumber(num)
+    if num ~= 0:
+        print("Bone method?(y/n): ")
+        bone = io.read()
 end
  
 function mine()
+    local flag
+    flag = 0
+
     for i=1,num do 
+        flag = flag + 1
         turtle.dig()
         turtle.forward()
         turtle.digUp()
+
+        if flag == 2:
+            turtle.turnLeft()
+            turtle.dig()
+            turtle.up()
+            turtle.dig()
+            turtle.turnRight()
+            turtle.turnRight()
+            turtle.dig()
+            turtle.down()
+            turtle.dig()
+            turtle.turnLeft()
     end
 end
  
