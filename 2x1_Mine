@@ -5,11 +5,13 @@ function init()
     if num > 0 then
         print("Bone method?(y/n): ")
         bone = io.read()
-        if bone ~= "y" or bone ~= "n" then
+        if bone ~= "y" and bone ~= "n" then
             print("Wrong input, try again.")
+            init()
         end
     else:
-        print("Steps must be larger than 0")
+        print("Steps must be larger than 0.")
+        init()
     end
 end
  
@@ -26,7 +28,7 @@ function mine()
         turtle.forward()
         turtle.digUp()
 
-        if flag == 2:
+        if flag == 3 then
             turtle.turnLeft()
             turtle.dig()
             turtle.up()
