@@ -1,0 +1,118 @@
+function initiate()
+    turtle.select(1)
+    turtle.refuel(3)
+    print("Put 1 stack of coal, cobble and torches in 1st, 2nd and 3rd slot respectively, then start the program! ")
+    while turtle.detect()==false do
+        turtle.forward()
+    end
+end
+ 
+function CheckFuel()
+    if turtle.getFuelLevel() < 500 then
+        turtle.refuel(5)
+    end
+end
+ 
+function Hammer()
+    torch = false
+    turtle.dig()
+    turtle.forward()
+ 
+    if turtle.detectDown()==false then
+        turtle.select(2)
+        turtle.placeDown()
+    end
+ 
+    for i=1,3 do
+        turtle.turnLeft()
+        turtle.dig()
+        turtle.turnRight()
+        turtle.turnRight()
+        turtle.dig()
+        turtle.turnLeft()
+ 
+        if i==1 or i==2 then
+            turtle.digUp()
+            turtle.up()
+        else
+            turtle.down()
+            turtle.down()
+        end   
+    end        
+end
+ 
+function TorchHammer()
+    turtle.dig()
+    turtle.forward()
+ 
+    if turtle.detectDown()==false then
+        turtle.select(2)
+        turtle.placeDown()
+    end
+ 
+    for i=1,3 do
+        turtle.turnLeft()
+        turtle.dig()
+        turtle.turnRight()
+        turtle.turnRight()
+        turtle.dig()
+        turtle.turnLeft()
+ 
+        if i==1 or i==2 then
+            turtle.digUp()
+            turtle.up()
+        else
+            turtle.down()
+            turtle.select(3)
+            turtle.placeDown()
+            turtle.dig()
+            turtle.forward()
+            turtle.digDown()
+            turtle.down()
+        end
+    end
+ 
+    if turtle.detectDown()==false then
+        turtle.select(2)
+        turtle.placeDown()
+    end
+ 
+    for i=1,3 do
+        turtle.turnLeft()
+        turtle.dig()
+        turtle.turnRight()
+        turtle.turnRight()
+        turtle.dig()
+        turtle.turnLeft()
+ 
+        if i==1 or i==2 then
+            turtle.digUp()
+            turtle.up()
+        else
+            turtle.down()
+            turtle.select(3)
+            turtle.placeDown()
+            turtle.dig()
+            turtle.forward()
+            turtle.digDown()
+            turtle.down()
+        end
+    end
+end
+ 
+function excavation()
+    TorchHammer()
+    for i=1,6 do
+        Hammer()
+    end
+end 
+ 
+function start()
+    initiate()
+    while true do
+        CheckFuel()
+        excavation()
+    end
+end
+ 
+start()
