@@ -1,0 +1,20 @@
+function init()
+    print("Enter how many steps you want the turtle to mine: ")
+    num = io.read()
+    num = tonumber(num)
+end
+ 
+function mine()
+    for i=1,num do 
+        turtle.dig()
+        turtle.forward()
+        turtle.digUp()
+    end
+end
+ 
+function main()
+    init()
+    mine()
+end
+ 
+main()
